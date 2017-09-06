@@ -1,6 +1,7 @@
 class User
 
-  attr_reader :name, :jokes
+  attr_reader :name
+  attr_accessor :jokes
 
   def initialize(name)
     @name = name
@@ -13,6 +14,10 @@ class User
 
   def tell(user, joke)
     user.learn(joke)
+  end
+
+  def perform_routine_for(user)
+    user.jokes = @jokes
   end
 
 end
