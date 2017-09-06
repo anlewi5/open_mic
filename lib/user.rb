@@ -23,11 +23,11 @@ class User
   end
 
   def learn_routine(file)
-    joke_array = []
-    CSV.foreach(file) do |line|
-      joke_array << line.split(', ')
-    end
-    joke_array.each do |joke|
+    CSV.foreach(file) do |joke|
+      #how do you remove 1st line of [id, question, answer]? this is super hacky right now
+      next if joke.include? "id"
+      next if joke.include? "question"
+      next if joke.include? "answer"
       id = joke[0]
       question = joke[1]
       answer = joke[2]
